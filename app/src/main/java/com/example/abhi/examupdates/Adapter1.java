@@ -28,7 +28,9 @@ public class Adapter1 extends RecyclerView.Adapter<Adapter1.AdapterViewHolder> {
     Context context;
     User user = new User();
     int k=0;
-    String desc;
+    String headline,desc,name_of_post,vacancies,location,pay_scale,application_fee,age_limit,educational_qualification,
+            release_date,start_date,last_date,admit_card_date,exam_date,apply_online,notification,official_website,others,url;
+
 
     DatabaseReference examUpdate;
 
@@ -75,16 +77,57 @@ public class Adapter1 extends RecyclerView.Adapter<Adapter1.AdapterViewHolder> {
                             user = ds.getValue(User.class);
                             if(i==k)
                             {
-                                if(user!=null)
-                                desc =user.getDescription();
+                                if(user!=null) {
 
 
+                                    desc = user.getDescription();
+                                    headline = user.getHeadline();
+                                    admit_card_date = user.getAdmit_card_date();
+                                    application_fee = user.getApplication_fee();
+                                    apply_online = user.getApply_online();
+                                    age_limit = user.getAge_limit();
+                                    educational_qualification = user.getEducational_qualification();
+                                    vacancies = user.getVacancies();
+                                    location = user.getLocation();
+                                    pay_scale = user.getPay_scale();
+                                    exam_date = user.getExam_date();
+                                    notification = user.getNotification();
+                                    official_website = user.getOfficial_website();
+                                    name_of_post = user.getName_of_post();
+                                    others = user.getOthers();
+                                    url = user.getUrl();
+                                    release_date = user.getRelease_date();
+                                    start_date = user.getStart_date();
+                                    last_date = user.getLast_date();
 
-                                Intent intent = new Intent(context,Display_Data.class);
-                                intent.putExtra("DESC",desc);
-                                context.startActivity(intent);
-                                ((Activity)context).finish();
 
+                                    Intent intent = new Intent(context, Display_Data.class);
+                                    intent.putExtra("HEADLINE", headline);
+                                    intent.putExtra("DESCRIPTION", desc);
+                                    intent.putExtra("NAME_OF_POST", name_of_post);
+                                    intent.putExtra("VACANCIES", vacancies);
+                                    intent.putExtra("LOCATION", location);
+                                    intent.putExtra("PAY_SCALE", pay_scale);
+                                    intent.putExtra("FEE", application_fee);
+                                    intent.putExtra("AGE_LIMIT", age_limit);
+                                    intent.putExtra("EDUCATIONAL_QUALIFICATION", educational_qualification);
+                                    intent.putExtra("RELEASE_DATE", release_date);
+                                    intent.putExtra("START_DATE", start_date);
+                                    intent.putExtra("LAST_DATE", last_date);
+                                    intent.putExtra("ADMIT_CARD", admit_card_date);
+                                    intent.putExtra("EXAM_DATE", exam_date);
+                                    intent.putExtra("APPLY_ONLINE", apply_online);
+                                    intent.putExtra("NOTIFICATION", notification);
+                                    intent.putExtra("OFFICIAL_WEBSITE", official_website);
+                                    intent.putExtra("OTHERS", others);
+                                    intent.putExtra("URL", url);
+
+
+                                    context.startActivity(intent);
+                                    ((Activity) context).finish();
+
+
+                                }
 
                                 Log.d("abcde",desc);
 

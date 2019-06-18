@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class Jobs extends AppCompatActivity {
     List<String> headline,url;
     RecyclerView programmingList;
     ProgressBar progressBar;
+    ImageView imageView;
 
 
 
@@ -38,6 +40,8 @@ public class Jobs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jobs);
+
+        imageView=findViewById(R.id.img);
 
         programmingList = (RecyclerView)findViewById(R.id.recycler);
         programmingList.setLayoutManager(new LinearLayoutManager(this));
@@ -116,6 +120,8 @@ public class Jobs extends AppCompatActivity {
                     }
                     programmingList.setAdapter(new Adapter1(Jobs.this,headline,url));
                     progressBar.setVisibility(View.INVISIBLE);
+                    imageView.setVisibility(View.INVISIBLE);
+
                     }
 
                 @Override
