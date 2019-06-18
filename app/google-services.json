@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "145841163257",
+    "firebase_url": "https://bankonline-a785a.firebaseio.com",
+    "project_id": "bankonline-a785a",
+    "storage_bucket": "bankonline-a785a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145841163257:android:ee6b65175b85f222",
+        "android_client_info": {
+          "package_name": "com.example.abhi.bankonline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "145841163257-bhoiq21skmds596j0ot3be87aejfjphs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.abhi.bankonline",
+            "certificate_hash": "41f51bcfb065d3b5615d86a9e5f06fba425c6d37"
+          }
+        },
+        {
+          "client_id": "145841163257-4l8uka7j0pg8i3nltct6kpbij7hld0p5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdwz6GJMQ9N_G59UuIvSNKyXc4HWNLrRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "145841163257-4l8uka7j0pg8i3nltct6kpbij7hld0p5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145841163257:android:58f35ee162808d3b",
+        "android_client_info": {
+          "package_name": "com.example.abhi.examupdates"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "145841163257-f38ftulh6hpm5hpkridu9ieubrita0q5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.abhi.examupdates",
+            "certificate_hash": "41f51bcfb065d3b5615d86a9e5f06fba425c6d37"
+          }
+        },
+        {
+          "client_id": "145841163257-4l8uka7j0pg8i3nltct6kpbij7hld0p5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdwz6GJMQ9N_G59UuIvSNKyXc4HWNLrRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "145841163257-4l8uka7j0pg8i3nltct6kpbij7hld0p5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
