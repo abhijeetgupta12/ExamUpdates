@@ -1,5 +1,6 @@
 package com.example.abhi.examupdates;
 
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
@@ -129,6 +130,7 @@ public class Jobs extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+
         finish();
         headline=null;
     }
