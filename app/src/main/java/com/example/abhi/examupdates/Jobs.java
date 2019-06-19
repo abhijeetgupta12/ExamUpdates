@@ -128,6 +128,10 @@ public class Jobs extends AppCompatActivity {
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                    Toast.makeText(Jobs.this,databaseError.toString(),Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.INVISIBLE);
+
+
                 }
             });
 

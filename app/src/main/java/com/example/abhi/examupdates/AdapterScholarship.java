@@ -68,7 +68,7 @@ public class AdapterScholarship extends RecyclerView.Adapter<AdapterScholarship.
 
 
                 examUpdate = FirebaseDatabase.getInstance().getReference("ExamUpdates").child("Scholarships");
-                examUpdate.addValueEventListener(new ValueEventListener() {
+                examUpdate.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

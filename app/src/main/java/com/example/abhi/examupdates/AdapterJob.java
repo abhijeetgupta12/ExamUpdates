@@ -68,13 +68,14 @@ public class AdapterJob extends RecyclerView.Adapter<AdapterJob.AdapterViewHolde
 
 
                 examUpdate = FirebaseDatabase.getInstance().getReference("ExamUpdates").child("Jobs");
-                examUpdate.addValueEventListener(new ValueEventListener() {
+                examUpdate.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         for (DataSnapshot ds : dataSnapshot.getChildren())
                         {
-                            user = ds.getValue(UserJob.class);
+
+                            user = ds.getValue(UserJob.class);//getValue gives null if no data found...
                             if(i==k)
                             {
                                 if(user!=null) {
@@ -141,6 +142,8 @@ public class AdapterJob extends RecyclerView.Adapter<AdapterJob.AdapterViewHolde
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
 
                     }
                 });

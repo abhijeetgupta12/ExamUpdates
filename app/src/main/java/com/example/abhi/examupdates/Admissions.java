@@ -123,6 +123,9 @@ public class Admissions extends AppCompatActivity {
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                    Toast.makeText(Admissions.this,databaseError.toString(),Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.INVISIBLE);
+
                 }
             });
 

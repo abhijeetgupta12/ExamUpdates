@@ -69,7 +69,7 @@ public class AdapterAdmission extends RecyclerView.Adapter<AdapterAdmission.Adap
 
 
                 examUpdate = FirebaseDatabase.getInstance().getReference("ExamUpdates").child("Admissions");
-                examUpdate.addValueEventListener(new ValueEventListener() {
+                examUpdate.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

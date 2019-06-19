@@ -124,6 +124,9 @@ public class Scholarships extends AppCompatActivity {
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                    Toast.makeText(Scholarships.this,databaseError.toString(),Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.INVISIBLE);
+
                 }
             });
 
