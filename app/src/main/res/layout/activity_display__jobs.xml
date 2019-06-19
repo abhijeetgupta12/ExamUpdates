@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/displaybg"
-    tools:context=".Display_Data">
+    tools:context=".Display_Jobs">
 
     <ScrollView
         android:layout_width="match_parent"

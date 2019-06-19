@@ -30,7 +30,7 @@ public class HomePage extends AppCompatActivity {
 
         marque=findViewById(R.id.marque);
         marque.setText("Welcome to ExamUpdates........Get the latest notification of Jobs,Admisssions,Results,Answer Keys,Syllabus,Scholarship and much more" +
-                "at one place..");
+                " at one place..");
         marque.setSelected(true);
 
 

@@ -1,11 +1,11 @@
 package com.example.abhi.examupdates;
 
-public class User {
+public class UserJob {
 
 String headline,description,name_of_post,vacancies,location,pay_scale,application_fee,age_limit,educational_qualification,
         release_date,start_date,last_date,admit_card_date,exam_date,apply_online,notification,official_website,others,url;
 
-  public User()
+  public UserJob()
   {
 
   }

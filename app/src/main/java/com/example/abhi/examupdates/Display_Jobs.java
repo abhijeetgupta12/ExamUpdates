@@ -5,15 +5,13 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-public class Display_Data extends AppCompatActivity {
+public class Display_Jobs extends AppCompatActivity {
 
     String headline,desc,name_of_post,vacancies,location,pay_scale,application_fee,age_limit,educational_qualification,
             release_date,start_date,last_date,admit_card_date,exam_date,apply_online,notification,official_website,others,url;
@@ -27,7 +25,7 @@ public class Display_Data extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display__data);
+        setContentView(R.layout.activity_display__jobs);
 
         imageView=findViewById(R.id.image);
 
@@ -149,8 +147,8 @@ public class Display_Data extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(Display_Data.this,Jobs.class);
+        Intent i = new Intent(Display_Jobs.this,Jobs.class);
         startActivity(i);
-        Display_Data.this.finish();
+        Display_Jobs.this.finish();
     }
 }

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.abhi.examupdates">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Display_Data"></activity>
+        <activity android:name=".Display_Admissions"></activity>
+        <activity android:name=".Display_Jobs" />
         <activity android:name=".Syllabus" />
         <activity android:name=".AnswerKey" />
         <activity android:name=".Admissions" />

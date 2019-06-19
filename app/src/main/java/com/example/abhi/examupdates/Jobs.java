@@ -1,6 +1,5 @@
 package com.example.abhi.examupdates;
 
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
@@ -8,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -27,7 +25,7 @@ import java.util.List;
 public class Jobs extends AppCompatActivity {
 
     DatabaseReference examUpdate;
-    User user = new User();
+    UserJob user = new UserJob();
     List<String> headline,url;
     RecyclerView programmingList;
     ProgressBar progressBar;
@@ -53,15 +51,18 @@ public class Jobs extends AppCompatActivity {
         examUpdate = FirebaseDatabase.getInstance().getReference("ExamUpdates").child("Jobs");
 
         retrieveData obj =new retrieveData();
-        Thread t1 = new Thread(obj);if(haveNetwork())
-        {
-            t1.start();
-            progressBar.setVisibility(View.VISIBLE);
-        }
+        if(haveNetwork()) {
+            Thread t1 = new Thread(obj);
+            {
+                t1.start();
+                progressBar.setVisibility(View.VISIBLE);
+            }
+            }
         else
-        {
-            Toast.makeText(Jobs.this,"Plz check your internet connection",Toast.LENGTH_SHORT).show();
-        }
+            {
+                Toast.makeText(Jobs.this, "Plz check your internet connection", Toast.LENGTH_SHORT).show();
+            }
+
 
     }
 
@@ -110,7 +111,7 @@ public class Jobs extends AppCompatActivity {
                     url=new ArrayList<>();
 
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        user = ds.getValue(User.class);
+                        user = ds.getValue(UserJob.class);
 
                         if(user!=null)
                         {
@@ -118,7 +119,7 @@ public class Jobs extends AppCompatActivity {
                             url.add(user.getUrl());
                         }
                     }
-                    programmingList.setAdapter(new Adapter1(Jobs.this,headline,url));
+                    programmingList.setAdapter(new AdapterJob(Jobs.this,headline,url));
                     progressBar.setVisibility(View.INVISIBLE);
                     imageView.setVisibility(View.INVISIBLE);
 
