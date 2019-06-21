@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,21 +21,18 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class AdapterAdmission extends RecyclerView.Adapter<AdapterAdmission.AdapterViewHolder> {
+public class AdapterAnswerKey extends RecyclerView.Adapter<AdapterAnswerKey.AdapterViewHolder> {
 
     List<String> data,img;
     Context context;
-    UserAdmission user = new UserAdmission();
+    UserAnswerKey user = new UserAnswerKey();
     int k=0;
 
-    String admit_card_date,age_limit,application_fee,apply_online,description,educational_qualification,exam_date,headline,
-            last_date,notification,official_website,others,start_date,url;
+    String pdfUrl,description,headline,official_website,others,url;
 
     DatabaseReference examUpdate;
 
-
-
-    public AdapterAdmission(Context context , List<String> data, List<String> img)
+    public AdapterAnswerKey(Context context , List<String> data, List<String> img)
     {
         this.data=data;
         this.img=img;
@@ -48,7 +44,7 @@ public class AdapterAdmission extends RecyclerView.Adapter<AdapterAdmission.Adap
     @Override
     public AdapterViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater =  LayoutInflater.from(viewGroup.getContext());
-        View view = inflater.inflate(R.layout.resource,viewGroup,false);       //view created
+        View view = inflater.inflate(R.layout.resource,viewGroup,false);
         return new AdapterViewHolder(view);
     }
 
@@ -59,6 +55,7 @@ public class AdapterAdmission extends RecyclerView.Adapter<AdapterAdmission.Adap
         adapterViewHolder.textView.setText(title);
         Picasso.get().load(img.get(i)).resize(300,150).into(adapterViewHolder.imageView);
 
+
         adapterViewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,14 +65,14 @@ public class AdapterAdmission extends RecyclerView.Adapter<AdapterAdmission.Adap
                 //________________________________________________________________________________________________________________
 
 
-                examUpdate = FirebaseDatabase.getInstance().getReference("ExamUpdates").child("Admissions");
+                examUpdate = FirebaseDatabase.getInstance().getReference("ExamUpdates").child("AnswerKey");
                 examUpdate.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         for (DataSnapshot ds : dataSnapshot.getChildren())
                         {
-                            user = ds.getValue(UserAdmission.class);
+                            user = ds.getValue(UserAnswerKey.class);
                             if(i==k)
                             {
                                 if(user!=null) {
@@ -83,33 +80,16 @@ public class AdapterAdmission extends RecyclerView.Adapter<AdapterAdmission.Adap
 
                                     description = user.getDescription();
                                     headline = user.getHeadline();
-                                    admit_card_date = user.getAdmit_card_date();
-                                    application_fee = user.getApplication_fee();
-                                    apply_online = user.getApply_online();
-                                    age_limit = user.getAge_limit();
-                                    educational_qualification = user.getEducational_qualification();
-                                    exam_date = user.getExam_date();
-                                    notification = user.getNotification();
+                                    pdfUrl = user.getPdfUrl();
+
                                     official_website = user.getOfficial_website();
                                     others = user.getOthers();
                                     url = user.getUrl();
-                                    start_date = user.getStart_date();
-                                    last_date = user.getLast_date();
 
-
-                                    Intent intent = new Intent(context, Display_Admissions.class);
-
+                                    Intent intent = new Intent(context, Display_AnswerKey.class);
                                     intent.putExtra("HEADLINE", headline);
                                     intent.putExtra("DESCRIPTION", description);
-                                    intent.putExtra("FEE", application_fee);
-                                    intent.putExtra("AGE_LIMIT", age_limit);
-                                    intent.putExtra("EDUCATIONAL_QUALIFICATION", educational_qualification);
-                                    intent.putExtra("START_DATE", start_date);
-                                    intent.putExtra("LAST_DATE", last_date);
-                                    intent.putExtra("ADMIT_CARD", admit_card_date);
-                                    intent.putExtra("EXAM_DATE", exam_date);
-                                    intent.putExtra("APPLY_ONLINE", apply_online);
-                                    intent.putExtra("NOTIFICATION", notification);
+                                    intent.putExtra("PDF", pdfUrl);
                                     intent.putExtra("OFFICIAL_WEBSITE", official_website);
                                     intent.putExtra("OTHERS", others);
                                     intent.putExtra("URL", url);
@@ -147,27 +127,25 @@ public class AdapterAdmission extends RecyclerView.Adapter<AdapterAdmission.Adap
             }
         });
 
-
     }
-
 
     @Override
     public int getItemCount() {
         return data.size();
     }
 
-    public class AdapterViewHolder extends RecyclerView.ViewHolder{
+    public class AdapterViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView textView;
         LinearLayout linearLayout;
 
-        public AdapterViewHolder(View itemView) {               //view sent to be kept in a viewholder
 
+        public AdapterViewHolder(@NonNull View itemView) {
             super(itemView);
+
             imageView = itemView.findViewById(R.id.imageview);
             textView = itemView.findViewById(R.id.textview);
             linearLayout=itemView.findViewById(R.id.linear);
-
 
         }
     }

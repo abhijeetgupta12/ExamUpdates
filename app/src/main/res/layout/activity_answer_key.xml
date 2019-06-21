@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="3dp"
+    android:background="@drawable/screenbg"
     tools:context=".AnswerKey">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_centerInParent="true"
+            android:background="@drawable/admissions_logo"
+            android:layout_width="300dp"
+            android:layout_height="250dp" />
+
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress"
+            style="@style/SpinKitView.Large.FadingCircle"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"
+            app:SpinKit_Color="#000000" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

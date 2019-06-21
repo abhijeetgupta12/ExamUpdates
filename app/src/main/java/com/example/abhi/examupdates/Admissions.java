@@ -48,12 +48,12 @@ public class Admissions extends AppCompatActivity {
         examUpdate = FirebaseDatabase.getInstance().getReference("ExamUpdates").child("Admissions");
 
         retrieveData obj =new retrieveData();
+        Thread t1 = new Thread(obj);
         if(haveNetwork()) {
-            Thread t1 = new Thread(obj);
-            {
+
                 t1.start();
                 progressBar.setVisibility(View.VISIBLE);
-            }
+
         }
         else
         {

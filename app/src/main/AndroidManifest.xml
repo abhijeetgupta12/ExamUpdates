@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
+        <activity android:name=".Web"></activity>
+        <activity android:name=".Display_AnswerKey" />
         <activity android:name=".Display_Scholarships" />
         <activity android:name=".Display_Admissions" />
         <activity android:name=".Display_Jobs" />
